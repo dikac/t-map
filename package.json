@@ -26,11 +26,11 @@
     "production": "dist-mover"
   },
   "files": [
-    "tsconfig-development.json",
     "src/",
+    "dist/",
     "LICENSE",
     "Readme.md",
-    "tsconfig-production.json"
+    "tsconfig.json"
   ],
   "author": "",
   "license": "MIT"

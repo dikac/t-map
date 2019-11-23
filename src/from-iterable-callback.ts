@@ -1,4 +1,4 @@
-export default function FromIterableCallback<Value, Key>(
+export default function FromIterableCallback<Key, Value>(
     iterable : Iterable<Value>,
     callback : (value : Value) => Key,
     map : Map<Key, Value> = new Map<Key, Value>()

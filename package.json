@@ -1,5 +1,5 @@
 {
-  "name": "t-map",
+  "name": "@dikac/t-map",
   "version": "0.8.5",
   "description": "Typescript map",
   "dependencies": {

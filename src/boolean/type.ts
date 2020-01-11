@@ -1,6 +1,6 @@
-import Methods from "t-object/boolean/methods";
-import SymbolIterator from "t-object/boolean/symbol-iterator";
-import SymbolToString from "t-object/boolean/symbol-to-string";
+import Methods from "@dikac/t-object/boolean/methods";
+import SymbolIterator from "@dikac/t-object/boolean/symbol-iterator";
+import SymbolToString from "@dikac/t-object/boolean/symbol-to-string";
 
 export default function Type <Key, Value> (value : any) : value is Map<Key, Value> {
 
@@ -9,27 +9,27 @@ export default function Type <Key, Value> (value : any) : value is Map<Key, Valu
         return false;
     }
 
-        if(!('size' in value)) {
+    if(!('size' in value)) {
 
-            return false;
-        }
+        return false;
+    }
 
-        if(!Methods(value, 'clear', 'delete', 'forEach', 'get', 'has', 'set')) {
+    if(!Methods(value, 'clear', 'delete', 'forEach', 'get', 'has', 'set')) {
 
-            return false;
-        }
+        return false;
+    }
 
-        if(!SymbolIterator(value)) {
+    if(!SymbolIterator(value)) {
 
-            return false;
-        }
+        return false;
+    }
 
-        if(!SymbolToString(value)) {
+    if(!SymbolToString(value)) {
 
-            return false;
-        }
+        return false;
+    }
 
-        return true;
+    return true;
 }
 
 

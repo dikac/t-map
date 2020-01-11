@@ -4,14 +4,14 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "t-object/boolean/methods", "t-object/boolean/symbol-iterator", "t-object/boolean/symbol-to-string"], factory);
+        define(["require", "exports", "@dikac/t-object/boolean/methods", "@dikac/t-object/boolean/symbol-iterator", "@dikac/t-object/boolean/symbol-to-string"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    const methods_1 = require("t-object/boolean/methods");
-    const symbol_iterator_1 = require("t-object/boolean/symbol-iterator");
-    const symbol_to_string_1 = require("t-object/boolean/symbol-to-string");
+    const methods_1 = require("@dikac/t-object/boolean/methods");
+    const symbol_iterator_1 = require("@dikac/t-object/boolean/symbol-iterator");
+    const symbol_to_string_1 = require("@dikac/t-object/boolean/symbol-to-string");
     function Type(value) {
         if (typeof value !== 'object' || value === null) {
             return false;

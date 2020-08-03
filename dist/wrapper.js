@@ -13,18 +13,6 @@
         constructor(map) {
             this.map = map;
         }
-        getMap() {
-            return this._map;
-        }
-        setMap(map) {
-            this._map = map;
-        }
-        get map() {
-            return this.getMap();
-        }
-        set map(map) {
-            this.setMap(map);
-        }
         get [Symbol.toStringTag]() {
             return this.map[Symbol.toStringTag];
         }

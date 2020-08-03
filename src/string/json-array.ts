@@ -1,4 +1,4 @@
-export default function ToJsonArray(map : Map<any, any>) : string {
+export default function JsonArray(map : Map<any, any>) : string {
 
     let array : [string, string][] = [];
 

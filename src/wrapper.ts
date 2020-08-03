@@ -1,55 +1,33 @@
+import InferKey from "./key/infer";
+import InferValue from "./value/infer";
 
-export default class Wrapper<K, V, Container extends Map<K, V>> implements Map<K, V> {
-
-    private _map !: Container;
+export default class Wrapper<
+    MapT extends Map<unknown, unknown>
+> implements Map<InferKey<MapT>, InferValue<MapT>> {
 
     constructor(
-        map: Container
+        public map: MapT
     ) {
-
-        this.map = map;
     }
-
-    protected getMap () : Container {
-
-        return this._map;
-    }
-
-    protected setMap (map : Container) {
-
-        this._map = map;
-    }
-
-    get map () : Container {
-
-        return this.getMap();
-    }
-
-    set map (map : Container) {
-
-        this.setMap(map);
-    }
-
-
 
     get [Symbol.toStringTag](): string {
 
         return this.map[Symbol.toStringTag];
     }
 
-    get size(): number
-    {
+    get size(): number {
+
         return this.map.size;
     }
 
-    has(key: K): boolean
-    {
+    has(key: InferKey<MapT>): boolean {
+
         return this.map.has(key);
     }
 
-    [Symbol.iterator](): IterableIterator<[K, V]>
-    {
-        return this.map[Symbol.iterator]();
+    [Symbol.iterator](): IterableIterator<[InferKey<MapT>, InferValue<MapT>]>{
+
+        return <IterableIterator<[InferKey<MapT>, InferValue<MapT>]>> this.map[Symbol.iterator]();
     }
 
     clear(): void {
@@ -57,39 +35,39 @@ export default class Wrapper<K, V, Container extends Map<K, V>> implements Map<K
         this.map.clear();
     }
 
-    delete(key: K): boolean {
+    delete(key: InferKey<MapT>): boolean {
 
         return this.map.delete(key);
     }
 
-    entries(): IterableIterator<[K, V]> {
+    entries(): IterableIterator<[InferKey<MapT>, InferValue<MapT>]> {
 
-        return this.map.entries();
+        return <IterableIterator<[InferKey<MapT>, InferValue<MapT>]>> this.map.entries();
     }
 
-    forEach(callbackfn: (value: V, key: K, map: Map<K, V>) => void, thisArg?: any): void {
+    forEach(callbackfn: (value: InferValue<MapT>, key: InferKey<MapT>, map: Map<InferKey<MapT>, InferValue<MapT>>) => void, thisArg?: any): void {
 
         return this.map.forEach(callbackfn, thisArg);
     }
 
-    get(key: K): V | undefined {
+    get(key: InferKey<MapT>): InferValue<MapT> | undefined {
 
-        return this.map.get(key);
+        return <InferValue<MapT> | undefined> this.map.get(key);
     }
 
-    keys(): IterableIterator<K> {
+    keys(): IterableIterator<InferKey<MapT>> {
 
-        return this.map.keys();
+        return < IterableIterator<InferKey<MapT>>> this.map.keys();
     }
 
-    set(key: K, value: V): this {
+    set(key: InferKey<MapT>, value: InferValue<MapT>): this {
 
         this.map.set(key, value);
         return this;
     }
 
-    values(): IterableIterator<V> {
+    values(): IterableIterator<InferValue<MapT>> {
 
-        return this.map.values();
+        return <IterableIterator<InferValue<MapT>>> this.map.values();
     }
 }

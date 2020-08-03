@@ -1,8 +1,8 @@
+import Function from "@dikac/t-function/function";
 
-
-export default function <Key, Value>(
+export default function Sort<Key, Value>(
     map : Map<Key, Value>,
-    filter : (pair1 : [Key, Value], pair2 : [Key, Value]) => number
+    filter : Function<[[Key, Value], [Key, Value]], number>
 ) : void {
 
     let arrays : [Key, Value][] = Array.from(map);

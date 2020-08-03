@@ -9,7 +9,7 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    function default_1(map, filter) {
+    function Sort(map, filter) {
         let arrays = Array.from(map);
         arrays.sort(filter);
         map.clear();
@@ -17,6 +17,6 @@
             map.set(key, value);
         }
     }
-    exports.default = default_1;
+    exports.default = Sort;
 });
 //# sourceMappingURL=sort.js.map

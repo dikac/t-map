@@ -9,13 +9,9 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    function ToString(map, dataDelimiter, associativeDelimiter) {
-        let buffer = [];
-        for (let [key, value] of map) {
-            buffer.push(key + associativeDelimiter + value);
-        }
-        return buffer.join(dataDelimiter);
+    function Map_(value) {
+        return value instanceof Map;
     }
-    exports.default = ToString;
+    exports.default = Map_;
 });
-//# sourceMappingURL=to-string.js.map
+//# sourceMappingURL=map.js.map

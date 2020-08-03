@@ -9,13 +9,16 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    function ToJsonArray(map) {
-        let array = [];
-        for (let [key, value] of map) {
-            array.push([key, value]);
+    function Sort(map, filter) {
+        let arrays = Array.from(map);
+        arrays.sort(function (value1, value2) {
+            return filter(value1[1], value2[1]);
+        });
+        map.clear();
+        for (let [key, value] of arrays) {
+            map.set(key, value);
         }
-        return JSON.stringify(array);
     }
-    exports.default = ToJsonArray;
+    exports.default = Sort;
 });
-//# sourceMappingURL=to-json-array.js.map
+//# sourceMappingURL=sort-value.js.map

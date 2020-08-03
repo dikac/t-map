@@ -9,16 +9,17 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    function default_1(map, filter) {
-        let arrays = Array.from(map);
-        arrays.sort(function (value1, value2) {
-            return filter(value1[0], value2[0]);
-        });
-        map.clear();
-        for (let [key, value] of arrays) {
-            map.set(key, value);
+    function MapOf(map, key, value) {
+        for (let [k, v] of map) {
+            if (!key(k)) {
+                return false;
+            }
+            if (!value(v)) {
+                return false;
+            }
         }
+        return true;
     }
-    exports.default = default_1;
+    exports.default = MapOf;
 });
-//# sourceMappingURL=sort-key.js.map
+//# sourceMappingURL=map-of.js.map

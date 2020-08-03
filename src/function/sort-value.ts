@@ -1,15 +1,15 @@
 import Function from "@dikac/t-function/function";
 
-export default function <Key, Value>(
+export default function Sort<Key, Value>(
     map : Map<Key, Value>,
-    filter : Function<[Key, Key], number>
+    filter : Function<[Value, Value], number>
 ) : void {
 
     let arrays : [Key, Value][] = Array.from(map);
 
     arrays.sort(function(value1, value2) {
 
-        return filter(value1[0], value2[0]);
+        return filter(value1[1], value2[1]);
     });
 
     map.clear();
@@ -20,4 +20,3 @@ export default function <Key, Value>(
     }
 
 }
-

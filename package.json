@@ -1,18 +1,15 @@
 {
   "name": "@dikac/t-map",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Typescript map",
   "dependencies": {
     "@dikac/deployer": "^0.1.5",
-    "@dikac/t-array": "^0.22.5",
-    "@dikac/t-function": "^0.11.5",
+    "@dikac/t-array": "^0.23.0",
     "@dikac/t-iterable": "^0.3.3",
-    "@dikac/t-object": "^0.31.1",
-    "@dikac/t-validatable": "^0.18.5",
-    "@dikac/t-validator": "^0.15.2"
+    "@dikac/t-object": "^0.32.0"
   },
   "devDependencies": {
-    "@types/jasmine": "^3.5.13",
+    "@types/jasmine": "^3.5.14",
     "cpy-cli": "^3.1.1",
     "jasmine": "^3.6.1",
     "jasmine-ts-console-reporter": "^3.1.1",

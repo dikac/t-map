@@ -1,12 +1,12 @@
 {
   "name": "@dikac/t-map",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Typescript map",
   "dependencies": {
     "@dikac/deployer": "^0.1.5",
-    "@dikac/t-array": "^0.23.0",
-    "@dikac/t-iterable": "^0.3.3",
-    "@dikac/t-object": "^0.32.0"
+    "@dikac/t-array": "^0.23.5",
+    "@dikac/t-iterable": "^0.3.4",
+    "@dikac/t-object": "^0.33.0"
   },
   "devDependencies": {
     "@types/jasmine": "^3.5.14",

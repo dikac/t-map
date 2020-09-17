@@ -1,21 +1,8 @@
-(function (factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        var v = factory(require, exports);
-        if (v !== undefined) module.exports = v;
+export default function JsonArray(map) {
+    let array = [];
+    for (let [key, value] of map) {
+        array.push([key, value]);
     }
-    else if (typeof define === "function" && define.amd) {
-        define(["require", "exports"], factory);
-    }
-})(function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    function JsonArray(map) {
-        let array = [];
-        for (let [key, value] of map) {
-            array.push([key, value]);
-        }
-        return JSON.stringify(array);
-    }
-    exports.default = JsonArray;
-});
+    return JSON.stringify(array);
+}
 //# sourceMappingURL=json-array.js.map

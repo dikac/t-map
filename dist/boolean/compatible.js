@@ -1,34 +1,21 @@
-(function (factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        var v = factory(require, exports);
-        if (v !== undefined) module.exports = v;
+import Iterable from "@dikac/t-iterable/boolean/iterable";
+import Object_ from "@dikac/t-object/boolean/object";
+import Property from "@dikac/t-object/property/boolean/exists";
+import Method from "@dikac/t-object/boolean/method";
+import List from "@dikac/t-array/boolean/list";
+export default function Compatible(value) {
+    if (!Object_(value)) {
+        return false;
     }
-    else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "@dikac/t-iterable/boolean/iterable", "@dikac/t-object/boolean/object", "@dikac/t-object/property/boolean/exists", "@dikac/t-object/boolean/method", "@dikac/t-array/boolean/list"], factory);
+    if (!Property(value, 'size')) {
+        return false;
     }
-})(function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    const iterable_1 = require("@dikac/t-iterable/boolean/iterable");
-    const object_1 = require("@dikac/t-object/boolean/object");
-    const exists_1 = require("@dikac/t-object/property/boolean/exists");
-    const method_1 = require("@dikac/t-object/boolean/method");
-    const list_1 = require("@dikac/t-array/boolean/list");
-    function Compatible(value) {
-        if (!object_1.default(value)) {
-            return false;
-        }
-        if (!exists_1.default(value, 'size')) {
-            return false;
-        }
-        if (!list_1.default(['clear', 'delete', 'forEach', 'get', 'has', 'set'], (property) => method_1.default(value, property))) {
-            return false;
-        }
-        if (!iterable_1.default(value)) {
-            return false;
-        }
-        return true;
+    if (!List(['clear', 'delete', 'forEach', 'get', 'has', 'set'], (property) => Method(value, property))) {
+        return false;
     }
-    exports.default = Compatible;
-});
+    if (!Iterable(value)) {
+        return false;
+    }
+    return true;
+}
 //# sourceMappingURL=compatible.js.map

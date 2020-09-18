@@ -11,6 +11,7 @@
   "devDependencies": {
     "@types/jasmine": "^3.5.14",
     "jasmine-ts-console-reporter": "^3.1.1",
+    "json-properties-remover": "^0.1.2",
     "cpy-cli": "^3.1.1",
     "jasmine": "^3.6.1",
     "esm": "^3.2.25",

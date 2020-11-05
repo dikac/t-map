@@ -1,6 +1,6 @@
 {
   "name": "@dikac/t-map",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "description": "Typescript map",
   "dependencies": {
     "@dikac/deployer": "^0.1.5",

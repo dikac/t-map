@@ -1,3 +1,11 @@
+/**
+ * map a {@see Map} object
+ *
+ * Mapper name taken to avoid conflict with {@see Map}
+ *
+ * @param source
+ * @param map
+ */
 export default function Mapper<
     Key,
     Value,

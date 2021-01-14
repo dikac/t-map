@@ -1,4 +1,3 @@
-import Wrapper from "../../dist/wrapper";
 import Mapper from "../../dist/mapper";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});

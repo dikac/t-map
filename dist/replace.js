@@ -1,5 +1,19 @@
+/**
+ * replace mat with another map
+ *
+ * replace value one by one without clearing destination
+ *
+ * @param destination
+ * @param source
+ * @constructor
+ */
 export default function Replace(destination, source) {
-    destination.clear();
+    // remove destination which does not exist in source
+    destination.forEach((value, key) => {
+        if (!source.has(key)) {
+            destination.delete(key);
+        }
+    });
     source.forEach((value, key) => destination.set(key, value));
     return destination;
 }

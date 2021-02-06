@@ -14,6 +14,12 @@ export default class RefreshInterval<Key, Value> extends Map<Key, Value> {
         this.milliseconds = milliseconds;
     }
 
+    restart(): void {
+
+        this.stop();
+        this.start();
+    }
+
     stop(): void{
 
         if(this.interval) {

@@ -3,6 +3,7 @@ export default class RefreshInterval<Key, Value> extends Map<Key, Value> {
     callback: (set: RefreshInterval<Key, Value>) => void;
     private interval?;
     constructor(milliseconds: number, callback: (set: RefreshInterval<Key, Value>) => void, values?: readonly [Key, Value][]);
+    restart(): void;
     stop(): void;
     start(): void;
     get seconds(): number;

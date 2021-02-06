@@ -19,6 +19,10 @@ export default class RefreshInterval extends Map {
         _milliseconds.set(this, void 0);
         this.milliseconds = milliseconds;
     }
+    restart() {
+        this.stop();
+        this.start();
+    }
     stop() {
         if (this.interval) {
             clearInterval(this.interval);

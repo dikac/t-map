@@ -1,13 +1,13 @@
 import Timeout = NodeJS.Timeout;
 
-export default class RefreshInterval<Key, Value> extends Map<Key, Value> {
+export default class RefreshInterval<Key, Value, Return = any> extends Map<Key, Value> {
 
-    private interval ?: Timeout;
+    private timeout ?: Timeout;
     #milliseconds !: number;
 
     constructor(
         milliseconds : number,
-        public callback : (set : RefreshInterval<Key, Value>) => void,
+        public callback : (set : RefreshInterval<Key, Value>) => Return,
         values?: readonly [Key, Value][]
     ) {
         super(values);
@@ -22,17 +22,33 @@ export default class RefreshInterval<Key, Value> extends Map<Key, Value> {
 
     stop(): void{
 
-        if(this.interval) {
+        if(this.timeout) {
 
-            clearInterval(this.interval);
-            this.interval = undefined;
+            clearTimeout(this.timeout);
+            this.timeout = undefined;
         }
+    }
+
+    protected call() : Return {
+
+        return this.callback(this);
+    }
+
+    protected next(): void {
+
+        this.start();
     }
 
     start(): void {
 
         this.stop();
-        this.interval = setInterval(()=>this.callback(this), this.#milliseconds)
+
+        this.timeout = setTimeout(()=>{
+
+            this.call();
+            this.next();
+
+        }, this.#milliseconds)
     }
 
     get seconds() : number {

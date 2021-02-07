@@ -1,6 +1,9 @@
 import BaseSort from "../sort";
-import Replace from "../replace";
 export default function Sort(map, filter) {
-    Replace(map, BaseSort(map, filter));
+    const sorted = BaseSort(map, filter);
+    map.clear();
+    for (const [key, value] of sorted.entries()) {
+        map.set(key, value);
+    }
 }
 //# sourceMappingURL=sort.js.map

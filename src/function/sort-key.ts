@@ -1,4 +1,3 @@
-import Replace from "../replace";
 import BaseSortKey from "../sort-key";
 
 export default function SortKey<Key, Value>(
@@ -6,5 +5,12 @@ export default function SortKey<Key, Value>(
     filter : (key1:Key, key2:Key)=>number
 ) : void {
 
-    Replace(map, BaseSortKey(map, filter));
+    const sorted = BaseSortKey(map, filter);
+
+    map.clear();
+
+    for(const [key, value] of sorted.entries()) {
+
+        map.set(key, value);
+    }
 }

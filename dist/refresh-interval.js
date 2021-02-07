@@ -24,14 +24,23 @@ export default class RefreshInterval extends Map {
         this.start();
     }
     stop() {
-        if (this.interval) {
-            clearInterval(this.interval);
-            this.interval = undefined;
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+            this.timeout = undefined;
         }
+    }
+    call() {
+        return this.callback(this);
+    }
+    next() {
+        this.start();
     }
     start() {
         this.stop();
-        this.interval = setInterval(() => this.callback(this), __classPrivateFieldGet(this, _milliseconds));
+        this.timeout = setTimeout(() => {
+            this.call();
+            this.next();
+        }, __classPrivateFieldGet(this, _milliseconds));
     }
     get seconds() {
         return this.milliseconds / 1000;

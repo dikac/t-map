@@ -8,10 +8,16 @@ export default class RefreshInterval<Key, Value, Return = any> extends Map<Key, 
     constructor(
         milliseconds : number,
         public callback : (set : RefreshInterval<Key, Value>) => Return,
-        values?: readonly [Key, Value][]
+        values?: readonly [Key, Value][],
+        start: boolean = true
     ) {
         super(values);
         this.milliseconds = milliseconds;
+
+        if(start) {
+
+            this.start();
+        }
     }
 
     restart(): void {
@@ -68,11 +74,7 @@ export default class RefreshInterval<Key, Value, Return = any> extends Map<Key, 
 
     set milliseconds(milliseconds : number) {
 
-        this.stop();
-
         this.#milliseconds = milliseconds;
-
-        this.start()
     }
 
 }

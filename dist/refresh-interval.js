@@ -13,11 +13,14 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
 };
 var _milliseconds;
 export default class RefreshInterval extends Map {
-    constructor(milliseconds, callback, values) {
+    constructor(milliseconds, callback, values, start = true) {
         super(values);
         this.callback = callback;
         _milliseconds.set(this, void 0);
         this.milliseconds = milliseconds;
+        if (start) {
+            this.start();
+        }
     }
     restart() {
         this.stop();
@@ -52,9 +55,7 @@ export default class RefreshInterval extends Map {
         return __classPrivateFieldGet(this, _milliseconds);
     }
     set milliseconds(milliseconds) {
-        this.stop();
         __classPrivateFieldSet(this, _milliseconds, milliseconds);
-        this.start();
     }
 }
 _milliseconds = new WeakMap();

@@ -2,7 +2,7 @@ export default class RefreshInterval<Key, Value, Return = any> extends Map<Key, 
     #private;
     callback: (set: RefreshInterval<Key, Value>) => Return;
     private timeout?;
-    constructor(milliseconds: number, callback: (set: RefreshInterval<Key, Value>) => Return, values?: readonly [Key, Value][]);
+    constructor(milliseconds: number, callback: (set: RefreshInterval<Key, Value>) => Return, values?: readonly [Key, Value][], start?: boolean);
     restart(): void;
     stop(): void;
     protected call(): Return;

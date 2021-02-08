@@ -35,7 +35,7 @@ export default class RefreshInterval<Key, Value, Return = any> extends Map<Key, 
         }
     }
 
-    protected call() : Return {
+    call() : Return {
 
         return this.callback(this);
     }
